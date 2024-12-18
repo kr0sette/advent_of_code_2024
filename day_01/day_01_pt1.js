@@ -7,19 +7,16 @@ const right_list = [];
 
 function getSumOfDistances () {
     const {left, right} = sortList(input);
+    let totalDistance = 0;
 
-    const distances = []
     for(i=0; i < left.length; i ++){
         //Compare index of each list and get distance
-        const difference = left[i] - right[i]
-        const distance = difference < 0 ? difference * -1 : difference
-        distances.push(distance);
+        const distance = Math.abs(left[i] - right[i])
+        totalDistance += distance;
     }
 
-    //Add all distances
-    const sum = distances.reduce((acc,distance) => acc + distance, 0)
 
-    return sum
+    return totalDistance
 
 }
 
